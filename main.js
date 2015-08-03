@@ -96,11 +96,17 @@ var main = new Vue({
             }, 100);
 
         },
-        export: function() {
-            this.exportText = '';
-            var text = plots.join('\r\n\r\n');
-            this.exportText = text;
-            this.save = true;
+        export: function () {
+            if (this.save) {
+                // Edit
+                this.save = false;
+            } else {
+                // Export
+                this.exportText = '';
+                var text = plots.join('\r\n\r\n');
+                this.exportText = text;
+                this.save = true;
+            }
         },
         reset: function() {
             if (confirm('プロットをリセットします。よろしいですか？')) {

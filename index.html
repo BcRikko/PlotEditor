@@ -13,11 +13,11 @@
         <div id="plot-editor">
             <div class="form-group">
                 <button class="btn btn-default" v-on="click: add">Add Plot</button>
-                <button class="btn btn-default" v-on="click: export">Plot Export</button>
+                <button class="btn btn-default" v-on="click: export">{{save ? "Plot Edit" : "Plot Export"}}</button>
                 <button class="btn btn-default" v-on="click: reset">Reset</button>
             </div>
             <div id="export" class="well well-sm" v-if="save">
-                <i class="remove glyphicon glyphicon-remove" v-on="click: save = false"></i>
+                <i class="remove glyphicon glyphicon-remove" v-on="click: save = !save"></i>
                 <span class="plot-size pull-right">{{exportText.length}}</span>
                 <textarea readonly class="form-control" rows="5" v-model="exportText"></textarea>
             </div>

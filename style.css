@@ -23,10 +23,14 @@ ul li {
     cursor: pointer;
 }
 
-footer {
-    margin-top: 30px;
-}
-
 #export:hover > .remove{
     opacity: 1.0;
+}
+
+#export > textarea {
+    background: whitesmoke;
+}
+
+footer {
+    margin-top: 30px;
 }
