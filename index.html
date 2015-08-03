@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Plot Editor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Plot Editor</h1>
+        
+        <div id="plot-editor">
+            <div class="form-group">
+                <button class="btn btn-default" v-on="click: add">Add Plot</button>
+                <button class="btn btn-default" v-on="click: export">Plot Export</button>
+                <button class="btn btn-default" v-on="click: reset">Reset</button>
+            </div>
+            <div v-component="plot" plots="{{plots}}"></div>
+        </div>
+        
+        <div id="help">
+            <h2>Help</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>アクション</th>
+                        <th>動作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>[Add Plot]</td><td>プロットを1つ追加します</td>
+                    <tr><td>[Export Plot]</td><td>プロットを出力します</td>
+                    <tr><td>[Reset]</td><td>すべてを削除します</td>
+                    <tr><td>Drag & Drop</td><td>プロットを移動します</td>
+                    
+                    <tr><td>Ctrl+Enter</td><td>[Add Plot]と同じ</td></tr>
+                    <tr><td>Ctrl+s</td><td>[Export Plot]と同じ</td></tr>
+                    <tr><td>Ctrl+Del</td><td>現在のプロットを削除します</td></tr>
+                    <tr><td>Ctrl+↑</td><td>上のプロットに移動します</td></tr>
+                    <tr><td>Ctrl+↓</td><td>下のプロットに移動します</td></tr>
+                    <tr><td>Ctrl+Shift+↑</td><td>上のプロットと入れ替えます</td></tr>
+                    <tr><td>Ctrl+Shift+↓</td><td>下のプロットと入れ替えます</td></tr>
+                </tbody>
+            <table>
+        </div>
+        <footer>
+            <p id="copyright">&copy; 2015 <a href="http://kuroeveryday.blogspot.com/" target="_blank">Black Everyday Company</a></p>
+        </footer>
+    </div>
+
+    <script type="text/x-template" id="plot-template">
+        <ul class="plot-list">
+            <li class="plot-area" v-repeat="plots" data-id="{{$index}}">
+                <i class="remove glyphicon glyphicon-remove" v-on="click: remove($index)"></i>
+                <span class="plot-size pull-right">{{$value.length}}</span>
+                <textarea class="form-control" rows="3" v-model="$value" v-on="keyup: shortcut(this, $index)"></textarea>
+            </li>
+        </ul>
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.8/vue.min.js"></script>
+    <script src="https://rubaxa.github.io/Sortable/Sortable.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

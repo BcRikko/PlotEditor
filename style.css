@@ -1,0 +1,24 @@
+.plot-list {
+    list-style: none;
+    padding: 0;
+}
+ul li {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.plot-size {
+    margin-right: 10px;
+}
+
+.remove{
+    opacity: 0.1;
+}
+
+.plot-area:hover > .remove{
+    opacity: 1.0;
+}
+
+footer {
+    margin-top: 30px;
+}
