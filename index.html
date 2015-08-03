@@ -19,7 +19,7 @@
             <div id="export" class="well well-sm" v-if="save">
                 <i class="remove glyphicon glyphicon-remove" v-on="click: save = !save"></i>
                 <span class="plot-size pull-right">{{exportText.length}}</span>
-                <textarea readonly class="form-control" rows="5" v-model="exportText"></textarea>
+                <textarea readonly class="form-control" rows="{{dispRows}}" v-model="exportText" v-on="click: allSelect"></textarea>
             </div>
             <div v-component="plot" plots="{{plots}}" v-if="!save"></div>
         </div>

@@ -111,6 +111,16 @@ var main = new Vue({
                     plots.$remove(0);
                 }
             }
+        },
+        allSelect: function () {
+            var el = document.getElementById('export').getElementsByTagName('textarea')[0];
+            el.select();
+        }
+    },
+    computed: {
+        dispRows: function () {
+            var rows = this.exportText.match(/\r\n/g);
+            return rows.length + 1;
         }
     }
 });
