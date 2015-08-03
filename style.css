@@ -19,6 +19,14 @@ ul li {
     opacity: 1.0;
 }
 
+.plot-area:hover {
+    cursor: pointer;
+}
+
 footer {
     margin-top: 30px;
+}
+
+#export:hover > .remove{
+    opacity: 1.0;
 }

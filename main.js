@@ -1,5 +1,7 @@
 var plots = [''];
 var index = 1;
+var exportText = '';
+var save = false;
 
 Vue.component('plot', {
     template: '#plot-template',
@@ -80,7 +82,9 @@ Vue.component('plot', {
 var main = new Vue({
     el: '#plot-editor',
     data: {
-        plots: plots
+        plots: plots,
+        exportText: exportText,
+        save: save
     },
     methods: {
         add: function() {
@@ -93,8 +97,10 @@ var main = new Vue({
 
         },
         export: function() {
+            this.exportText = '';
             var text = plots.join('\r\n\r\n');
-            prompt("Export", text);
+            this.exportText = text;
+            this.save = true;
         },
         reset: function() {
             if (confirm('プロットをリセットします。よろしいですか？')) {
