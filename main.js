@@ -69,10 +69,6 @@ Vue.component('plot', {
                     case 46:
                         this.remove(index);
                         break;
-                    // s
-                    case 83:
-                        main.export();
-                        break;
                 }
             }
         }
@@ -120,6 +116,10 @@ var main = new Vue({
 });
 
 // Ctrl+Sの無効化
-document.onkeydown = function () {
-    if (event.keyCode == 83) { return false;} 
+document.onkeydown = function (e) {
+    if (e.ctrlKey && e.keyCode == 83) {
+        main.export();
+        e.preventDefault();
+        return false;
+    }
 }
