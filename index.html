@@ -13,7 +13,7 @@
         <div id="plot-editor">
             <div class="form-group">
                 <button class="btn btn-default" v-on="click: add">Add Plot</button>
-                <button class="btn btn-default" v-on="click: export">{{save ? "Plot Edit" : "Plot Export"}}</button>
+                <button class="btn btn-default" v-on="click: export">{{save ? "Edit Plot" : "Export Plot"}}</button>
                 <button class="btn btn-default" v-on="click: reset">Reset</button>
             </div>
             <div id="export" class="well well-sm" v-if="save">
@@ -35,7 +35,8 @@
                 </thead>
                 <tbody>
                     <tr><td>[Add Plot]</td><td>プロットを1つ追加します</td>
-                    <tr><td>[Export Plot]</td><td>プロットを出力します</td>
+                    <tr><td>[Export Plot]</td><td>プロット出力エリアを表示します</td>
+                    <tr><td>[Edit Plot]</td><td>プロット編集画面に戻ります</td>
                     <tr><td>[Reset]</td><td>すべてを削除します</td>
                     <tr><td>Drag & Drop</td><td>プロットを移動します</td>
                     
